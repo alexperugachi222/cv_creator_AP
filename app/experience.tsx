@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  Alert,
-  TouchableOpacity,
-} from "react-native";
 import { useRouter } from "expo-router";
+import { useState } from "react";
+import {
+    Alert,
+    ScrollView,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
+} from "react-native";
+import { DateInputField } from "../components/DateInputField";
 import { InputField } from "../components/InputField";
 import { NavigationButton } from "../components/NavigationButton";
 import { useCVContext } from "../context/CVContext";
@@ -83,16 +84,16 @@ export default function ExperienceScreen() {
           onChangeText={(text) => setFormData({ ...formData, position: text })}
         />
 
-        <InputField
+        <DateInputField
           label="Fecha de Inicio *"
-          placeholder="Ej: Enero 2020"
+          placeholder="Seleccionar mes y año..."
           value={formData.startDate}
           onChangeText={(text) => setFormData({ ...formData, startDate: text })}
         />
 
-        <InputField
+        <DateInputField
           label="Fecha de Fin"
-          placeholder="Ej: Diciembre 2023 o 'Actual'"
+          placeholder="Dejar vacío si es tu trabajo Actual"
           value={formData.endDate}
           onChangeText={(text) => setFormData({ ...formData, endDate: text })}
         />
